@@ -1,0 +1,10 @@
+
+    {% extends "layouts/base.html" %}
+    {% block content %}
+    <h1>Projects</h1>
+    <ol class="projects">
+        {% for project in projects %}
+        <a href="{% url 'project_detail' project.id %}" class="card">{{project.name}}</a>
+        {% endfor %}
+    </ol>
+    {% endblock %}    

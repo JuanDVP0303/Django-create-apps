@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "layouts/base.html" %}
+    {% block content %}
+    
+    <h1>Tareas</h1>
+    <ol class="tasks-container">
+        {% if not tasks %}
+            <h1>Aun no tienes tareas, crea un proyecto y empieza a crear tareas!</h1>
+        {% else %}
+        {% for task in tasks %}
+            <li>
+                <h2>Task Title:{% if task.done == True %} ✅ {%else%} ✖️ {% endif %} {{task.title}}</h2>
+                <p>Project: {{task.project.name}}</p>
+                <div class="button-container">
+                <button class="button">Done ✅</button>
+                <button class="button">Delete ✖️</button>
+            </div>
+                <br/>
+                <br/>
+            </li>
+        {% endfor %}
+        {% endif %}
+
+    </ol>
+    {% endblock %}
+
+</body>
+</html>

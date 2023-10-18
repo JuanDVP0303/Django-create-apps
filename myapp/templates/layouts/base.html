@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django project</title>
+    <link rel="stylesheet" href="{% static '/style/main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="navbar container">
+        <ul>
+            <li>
+                <a href="{% url 'main' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'about' %}">About</a>
+            </li>
+            <li>
+                <a href="{% url 'projects' %}">Projects</a>
+            </li>
+            <li>
+                <a href="{% url 'tasks' %}">Tasks</a>
+            </li>
+            <li>
+                <a href="{% url 'create_task' %}">Create Task</a>
+            </li>
+            <li>
+                <a href="{% url 'create_project' %}">Create Projects</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>
